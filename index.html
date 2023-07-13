@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello Nophy</title>
+    <link rel="stylesheet" href="./vue.css" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"
+      type="text/javascript"
+    ></script>
+  </head>
+  <body>
+    <div id="root">
+      <div>
+        <div id="form">
+          <input type="text" v-model="content" />
+          <button @click="handleSubmit">Add New Task</button>
+        </div>
+        <div>{{number_of_completed_tasks}} completed</div>
+      </div>
+
+      <div style="margin-top: 4rem">
+        <div class="clue">
+          <span>completed</span>
+          <span>delete</span>
+          <span>edit</span>
+        </div>
+        <div class="task" v-for="task in tasks">
+          <input type="text" v-bind:value="task.content" />
+          <input
+            type="checkbox"
+            v-model="task.isCompleted"
+            size="2rem"
+            style="transform: scale(2)"
+          />
+          <input type="button" value="x" style="width: 2rem" />
+          <button @click="edit">edit</button>
+        </div>
+      </div>
+    </div>
+    <script>
+      new Vue({
+        el: "#root",
+        data: {
+          content: "",
+          tasks: [
+            {
+              content: "Play football",
+              isCompleted: false,
+              isThrash: false,
+              edit: "",
+            },
+          ],
+        },
+        methods: {
+          handleSubmit() {
+            this.tasks.push({
+              content: this.content,
+              isCompleted: false,
+              isThrash: false,
+              edit: "",
+            });
+          },
+          edit() {},
+        },
+        computed: {
+          number_of_completed_tasks() {
+            const i = this.tasks.filter(
+              (task) => task.isCompleted === true
+            ).length;
+
+            const words = i < 2 ? "task" : "tasks";
+            return i + " " + words;
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

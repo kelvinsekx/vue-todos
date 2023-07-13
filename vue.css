@@ -1,0 +1,59 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#root > div:nth-child(1) {
+  display: flex;
+  gap: 2rem;
+}
+#root > div:nth-child(1) > div {
+  background-color: #acffa4;
+  font-weight: bold;
+  border: 3px solid black;
+  font-size: 1.2rem;
+  padding: 0.2rem 0.5rem;
+}
+
+#form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 30vw;
+}
+
+#form > button,
+#form > input {
+  height: 2rem;
+  width: 100%;
+  background-color: #ffeea4;
+  font-weight: bold;
+  border: 3px solid black;
+  font-size: 1.2rem;
+}
+
+.task {
+  display: flex;
+  gap: 1.5rem;
+  height: 2rem;
+}
+
+.task > input:nth-child(1) {
+  width: 14rem;
+}
+
+.task input {
+  height: 2rem;
+}
+
+.clue {
+  margin-left: 12rem;
+  margin-bottom: 1rem;
+}
+
+.clue span {
+  border: 1px solid black;
+  font-size: large;
+  margin-right: 0.2rem;
+  padding: 0.2rem 0.3rem;
+}
